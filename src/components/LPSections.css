@@ -12,7 +12,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(7, 12, 20, 0.88) 0%, rgba(7, 12, 20, 0.82) 100%);
+  background: linear-gradient(to bottom, rgba(5, 8, 14, 0.93) 0%, rgba(5, 8, 14, 0.90) 100%);
   z-index: -1;
 }
 
@@ -116,7 +116,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(7, 12, 20, 0.90) 0%, rgba(7, 12, 20, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(5, 8, 14, 0.94) 0%, rgba(5, 8, 14, 0.91) 100%);
   z-index: -1;
 }
 
@@ -355,7 +355,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(7, 12, 20, 0.88) 0%, rgba(7, 12, 20, 0.80) 60%, rgba(7, 12, 20, 0.92) 100%);
+  background: linear-gradient(to bottom, rgba(5, 8, 14, 0.93) 0%, rgba(5, 8, 14, 0.88) 60%, rgba(5, 8, 14, 0.95) 100%);
   z-index: -1;
 }
 

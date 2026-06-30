@@ -1,0 +1,471 @@
+/* 1. Trust Features Section */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 3rem;
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+
+.trust-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: hsla(220, 25%, 15%, 0.2);
+  border: 1px solid var(--glass-border);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.trust-list-item:hover {
+  border-color: var(--glass-gold-border);
+  transform: translateX(4px);
+}
+
+.checkmark-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--primary-glow);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.checkmark-text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* 2. Services Grid */
+.services-grid-lp {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.srv-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.srv-icon-container {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--primary-glow);
+  border: 1px solid var(--glass-gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.srv-icon {
+  color: var(--primary);
+}
+
+.srv-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.srv-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 3. Countries Badges */
+.countries-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.country-badge-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  background: hsla(220, 25%, 15%, 0.35);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.country-badge-card:hover {
+  border-color: var(--glass-gold-border);
+  transform: translateY(-2px);
+  background: var(--primary-glow);
+}
+
+.gold-dot {
+  color: var(--primary);
+}
+
+.country-name-txt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* 4. Process Timeline */
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 3.5rem auto 0;
+  position: relative;
+}
+
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 2px;
+  height: 100%;
+  background: var(--glass-border);
+  z-index: 0;
+}
+
+.timeline-step {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+.step-number-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 2px solid var(--glass-border);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.step-num-txt {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.timeline-step:hover .step-number-wrap {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: hsl(220, 25%, 5%);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.step-info-card {
+  flex-grow: 1;
+  padding: 1.5rem 2rem;
+}
+
+.step-info-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.step-info-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.process-sub-cta {
+  margin-top: 3rem;
+}
+
+.process-phone-banner {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  background: var(--primary-glow);
+  border: 1px solid var(--glass-gold-border);
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  transition: all var(--transition-fast);
+}
+
+.process-phone-banner:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-glow);
+}
+
+/* 5. Trust Description */
+.trust-desc-container {
+  padding: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.trust-desc-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.trust-desc-content h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.trust-desc-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-light);
+}
+
+.trust-desc-content p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* 6. FAQ Accordion */
+.faq-accordion-wrapper {
+  max-width: 700px;
+  margin: 3.5rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.faq-item-card.active {
+  border-color: var(--glass-gold-border);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 1.25rem 1.75rem;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.faq-q-text {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.faq-q-icon {
+  color: var(--primary);
+}
+
+.faq-answer-panel {
+  padding: 0 1.75rem 1.25rem 3.5rem;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1rem;
+}
+
+.faq-answer-panel p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 7. Reviews Grid */
+.reviews-grid-lp {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.review-card-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 2.5rem 2rem;
+}
+
+.review-stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.review-txt {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.review-author {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* 8. Contact Details Cards Grid */
+.contact-details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.contact-detail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.25rem 1.5rem;
+}
+
+.detail-icon {
+  color: var(--primary);
+}
+
+.contact-detail-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.detail-value-link,
+.detail-value-txt {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.detail-value-link:hover {
+  color: var(--primary);
+}
+
+.detail-value-txt-sub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Responsive Queries */
+@media (max-width: 1200px) {
+  .services-grid-lp {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .countries-badges-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contact-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .reviews-grid-lp {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .countries-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-desc-container {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .trust-desc-content h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .countries-badges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .process-timeline::before {
+    left: 15px;
+  }
+  
+  .timeline-step {
+    gap: 1rem;
+  }
+  
+  .step-number-wrap {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .step-num-txt {
+    font-size: 0.75rem;
+  }
+
+  .step-info-card {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .faq-answer-panel {
+    padding-left: 2rem;
+  }
+}

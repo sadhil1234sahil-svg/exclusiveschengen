@@ -1,17 +1,24 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ShieldCheck, Mail, Send, Award, CheckSquare, Heart } from 'lucide-react';
+import { ShieldCheck, Mail, Phone, Clock, Award, CheckSquare, Heart, MessageSquare } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
+  const whatsappUrl = "https://api.whatsapp.com/send/?phone=+971558443362&text=Hello+The+Schengen%2C+I+need+Schengen+appointment+help.&type=phone_number&app_absent=0";
+  const phoneUrl = "tel:+971558443362";
 
-  const handleSubscribe = (e) => {
+  const handleLinkClick = (e, target) => {
     e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
+    const element = document.querySelector(target);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -21,91 +28,83 @@ export default function Footer() {
         
         {/* Brand Information */}
         <div className="footer-brand">
-          <Link to="/" className="footer-logo">
+          <a href="#hero-section" className="footer-logo" onClick={(e) => handleLinkClick(e, '#hero-section')}>
             <ShieldCheck className="logo-icon" />
             <span className="logo-text">
               EXCLUSIVE<span className="logo-sub">SCHENGEN</span>
             </span>
-          </Link>
+          </a>
           <p className="brand-description">
-            The world's premier Schengen visa agency. We provide white-glove application processing, 
-            exclusive appointment securing, and legal coverage for elite global citizens.
+            Professional Schengen consultancy services for UAE residents. We handle slot bookings, 
+            documentation reviews, and application setups for a stress-free travel path.
           </p>
           <div className="trust-badges">
             <div className="trust-badge-item">
               <Award size={14} className="trust-icon" />
-              <span>Registered Agency</span>
+              <span>Expert Guidance</span>
             </div>
             <div className="trust-badge-item">
               <CheckSquare size={14} className="trust-icon" />
-              <span>GDPR Compliant</span>
+              <span>High Acceptance</span>
             </div>
           </div>
         </div>
 
         {/* Quick Links Column */}
         <div className="footer-links-col">
-          <h4>VVIP Services</h4>
+          <h4>Quick Links</h4>
           <ul className="footer-links">
-            <li><Link to="/">Home Portal</Link></li>
-            <li><Link to="/eligibility">Eligibility Check</Link></li>
-            <li><Link to="/packages">Concierge Plans</Link></li>
-            <li><Link to="/destinations">Schengen Destinations</Link></li>
+            <li><a href="#hero-section" onClick={(e) => handleLinkClick(e, '#hero-section')}>Home</a></li>
+            <li><a href="#services-section" onClick={(e) => handleLinkClick(e, '#services-section')}>Services</a></li>
+            <li><a href="#countries-section" onClick={(e) => handleLinkClick(e, '#countries-section')}>Countries</a></li>
+            <li><a href="#faq-section" onClick={(e) => handleLinkClick(e, '#faq-section')}>FAQ</a></li>
+            <li><a href="#contact-section" onClick={(e) => handleLinkClick(e, '#contact-section')}>Contact</a></li>
           </ul>
         </div>
 
-        {/* Legal Links Column */}
+        {/* Legal Column */}
         <div className="footer-links-col">
-          <h4>Legal Information</h4>
+          <h4>Legal Pages</h4>
           <ul className="footer-links">
-            <li><Link to="/terms">Terms of Use</Link></li>
-            <li><Link to="/privacy">Privacy Guarantee</Link></li>
-            <li><Link to="/refund">Refund Policy</Link></li>
-            <li><Link to="/disclaimer">Legal Disclaimer</Link></li>
+            <li><a href="#privacy" onClick={(e) => e.preventDefault()}>Privacy Policy</a></li>
+            <li><a href="#terms" onClick={(e) => e.preventDefault()}>Terms & Conditions</a></li>
+            <li><a href="#disclaimer" onClick={(e) => e.preventDefault()}>Service Disclaimer</a></li>
           </ul>
         </div>
 
-        {/* Newsletter Signup Column */}
-        <div className="footer-newsletter">
-          <h4>VVIP Travel Briefing</h4>
-          <p className="newsletter-description">
-            Receive exclusive notifications when urgent slot appointments open or visa rule changes occur.
-          </p>
-          
-          {!subscribed ? (
-            <form onSubmit={handleSubscribe} className="newsletter-form">
-              <div className="newsletter-input-wrapper">
-                <Mail size={16} className="mail-icon" />
-                <input 
-                  type="email" 
-                  required 
-                  placeholder="VVIP Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <button type="submit" className="btn btn-primary btn-icon-only" aria-label="Subscribe">
-                <Send size={14} />
-              </button>
-            </form>
-          ) : (
-            <div className="newsletter-success animate-fade-in-up">
-              <ShieldCheck size={16} className="success-icon" />
-              <span>Subscription Activated</span>
-            </div>
-          )}
+        {/* Contact and Business Hours Column */}
+        <div className="footer-contact-info">
+          <h4>Contact Information</h4>
+          <ul className="footer-contact-list">
+            <li>
+              <Phone size={14} className="contact-icon" />
+              <a href={phoneUrl} className="contact-link">Call: +971 55 844 3362</a>
+            </li>
+            <li>
+              <MessageSquare size={14} className="contact-icon wa-icon-style" />
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="contact-link wa-icon-style">WhatsApp: +971 55 844 3362</a>
+            </li>
+            <li>
+              <Mail size={14} className="contact-icon" />
+              <a href="mailto:info@exclusiveschengen.com" className="contact-link">info@exclusiveschengen.com</a>
+            </li>
+            <li className="hours-item">
+              <Clock size={14} className="contact-icon" />
+              <span>Mon – Sat: 9:00 AM – 7:00 PM</span>
+            </li>
+          </ul>
         </div>
 
       </div>
 
-      {/* Footer Base Copy */}
+      {/* Footer Base */}
       <div className="footer-base">
         <div className="container base-container">
           <p className="copyright-text">
             © {new Date().getFullYear()} Exclusive Schengen. All rights reserved.
           </p>
           <p className="credits-text">
-            Made with <Heart size={10} className="heart-icon" /> for elite travelers.
+            Designed for seamless travel consultancies.
           </p>
         </div>
       </div>

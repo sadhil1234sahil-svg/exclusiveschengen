@@ -80,8 +80,8 @@
   color: var(--primary);
 }
 
-/* Newsletter Column */
-.footer-newsletter h4 {
+/* Contact Info Column */
+.footer-contact-info h4 {
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
@@ -89,70 +89,51 @@
   color: var(--text-primary);
 }
 
-.newsletter-description {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
-}
-
-.newsletter-form {
+.footer-contact-list {
+  list-style: none;
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.newsletter-input-wrapper {
-  position: relative;
-  flex-grow: 1;
-}
-
-.mail-icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-}
-
-.newsletter-input-wrapper input {
-  font-family: var(--font-body);
+.footer-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 0.85rem;
-  width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
-  border-radius: var(--radius-full);
-  background: hsla(220, 25%, 15%, 0.4);
-  border: 1px solid var(--glass-border);
-  color: var(--text-primary);
-  outline: none;
-  transition: all var(--transition-fast);
+  color: var(--text-secondary);
 }
 
-.newsletter-input-wrapper input:focus {
-  border-color: var(--primary);
-}
-
-.btn-icon-only {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-full);
-  padding: 0;
+.contact-icon {
+  color: var(--primary);
   flex-shrink: 0;
 }
 
-.newsletter-success {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--success);
-  font-weight: 600;
-  padding: 0.75rem 1.25rem;
-  background: hsla(142, 70%, 50%, 0.1);
-  border: 1px solid hsla(142, 70%, 50%, 0.15);
-  border-radius: var(--radius-full);
+.contact-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
-/* Footer Base Copyright Row */
+.contact-link:hover {
+  color: var(--primary);
+}
+
+.wa-icon-style {
+  color: #25D366;
+}
+
+.wa-icon-style:hover {
+  color: #20ba5a;
+}
+
+.hours-item {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Footer Base */
 .footer-base {
   border-top: 1px solid var(--glass-border);
   padding: 1.75rem 0;
@@ -169,11 +150,6 @@
 .credits-text {
   font-size: 0.75rem;
   color: var(--text-muted);
-}
-
-.heart-icon {
-  color: var(--danger);
-  fill: var(--danger);
 }
 
 /* Responsive Footer */

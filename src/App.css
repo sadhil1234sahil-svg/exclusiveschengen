@@ -1,174 +1,44 @@
+/* General Main Layout Spacer */
 .main-content {
-  min-height: calc(100vh - 80px - 350px); /* Height minus navbar and footer approx */
+  min-height: calc(100vh - 85px - 400px); /* Height excluding header/footer */
+  padding-top: 85px; /* Offset to prevent navbar overlap */
 }
 
-/* Trust Statistics Banner */
-.trust-section {
-  position: relative;
-  margin-top: -1.5rem;
-  z-index: 5;
-}
-
-.trust-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2.25rem 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.trust-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Base styles for global section headers */
+.section-header {
   text-align: center;
-  gap: 0.25rem;
-  flex: 1;
+  margin-bottom: 3.5rem;
 }
 
-.trust-stat {
-  font-family: var(--font-display);
+.section-title {
   font-size: 2.2rem;
   font-weight: 800;
-  color: var(--primary);
-  line-height: 1;
-}
-
-.trust-text {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.divider-line {
-  width: 1px;
-  height: 50px;
-  background: var(--glass-border);
-}
-
-/* Why Choose Us Cards */
-.features-section {
-  position: relative;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 4rem;
-}
-
-.feature-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
-}
-
-.feature-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: var(--primary-glow);
-  border: 1px solid var(--glass-gold-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 15px var(--primary-glow);
-}
-
-.feature-card-icon {
-  color: var(--primary);
-  width: 22px;
-  height: 22px;
-}
-
-.feature-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
   color: var(--text-primary);
 }
 
-.feature-card p {
-  font-size: 0.9rem;
+.section-subtitle {
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* Call to Action Banner */
-.cta-banner-section {
-  position: relative;
-}
-
-.cta-banner {
-  position: relative;
-  text-align: center;
-  padding: 4.5rem 2rem;
-  overflow: hidden;
-  background: radial-gradient(circle at top, hsla(45, 85%, 52%, 0.05) 0%, hsla(220, 25%, 10%, 0.4) 100%);
-  border: 1px solid var(--glass-gold-border);
-  box-shadow: var(--shadow-glow);
-}
-
-.cta-banner-bg-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-  background-size: 30px 30px;
-  pointer-events: none;
-}
-
-.cta-content {
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
+  max-width: 650px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
+  line-height: 1.5;
 }
 
-.cta-content h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  line-height: 1.2;
+/* Animation triggers helper */
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.cta-content p {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.cta-buttons {
-  margin-top: 0.5rem;
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
-}
-
-@media (max-width: 768px) {
-  .trust-container {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .divider-line {
-    display: none;
-  }
-  
-  .cta-content h2 {
-    font-size: 1.8rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

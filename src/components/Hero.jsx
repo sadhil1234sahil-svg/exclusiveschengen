@@ -54,16 +54,16 @@ export default function Hero() {
           
           <div className="hero-actions animate-fade-in-up">
             <a href="#lead-form-section" className="btn btn-primary btn-lg" onClick={handleConsultationClick}>
-              <span>✅ Book Free Consultation</span>
+              <span>Book Free Consultation</span>
               <ArrowRight size={16} />
             </a>
             <a href={phoneUrl} className="btn btn-secondary btn-lg">
               <Phone size={16} fill="currentColor" />
-              <span>📞 Call +971 55 844 3362</span>
+              <span>Call +971 55 844 3362</span>
             </a>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-lg cta-wa-hero">
               <MessageSquare size={16} fill="currentColor" />
-              <span>💬 Chat on WhatsApp</span>
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
         </div>

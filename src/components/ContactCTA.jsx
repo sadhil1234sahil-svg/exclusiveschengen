@@ -15,11 +15,11 @@ export default function ContactCTA() {
         <div className="contact-cta-buttons">
           <a href={phoneUrl} className="btn btn-primary cta-call-btn">
             <Phone size={16} fill="currentColor" />
-            <span>📞 Call +971 55 844 3362</span>
+            <span>Call +971 55 844 3362</span>
           </a>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary cta-wa-btn">
             <MessageSquare size={16} fill="currentColor" className="wa-icon-color" />
-            <span>💬 WhatsApp Now</span>
+            <span>WhatsApp Now</span>
           </a>
         </div>
       </div>

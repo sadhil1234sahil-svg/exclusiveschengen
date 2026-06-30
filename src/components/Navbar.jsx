@@ -79,7 +79,7 @@ export default function Navbar() {
           </a>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary navbar-wa-btn">
             <MessageSquare size={14} fill="currentColor" />
-            <span>💬 WhatsApp</span>
+            <span>WhatsApp</span>
           </a>
         </div>
 

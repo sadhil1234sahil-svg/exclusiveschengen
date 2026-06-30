@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { 
-  ShieldCheck, HelpCircle, Check, MapPin, ClipboardList, 
+  ShieldCheck, HelpCircle, Check, MapPin, ClipboardList, Mail, 
   BookOpen, Star, Calendar, FileText, Briefcase, Phone, MessageSquare, ChevronDown, ChevronUp 
 } from 'lucide-react';
 import './LPSections.css';

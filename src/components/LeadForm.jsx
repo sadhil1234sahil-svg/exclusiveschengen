@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Phone, Mail, CheckCircle2, MessageSquare, ShieldCheck } from 'lucide-react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import './LeadForm.css';
 
 export default function LeadForm() {
   const accessKey = "3882dd81-49e0-4cc8-9387-342f969403b9";
+
+  // Web3Forms hCaptcha sitekey:
+  // Default Web3Forms key: 50b2fe65-b00b-4b9e-ad62-3ba471098be2
+  // (If you configured your own custom sitekey in Web3Forms / hCaptcha dashboard, replace it here)
+  const hcaptchaSiteKey = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
   const [formData, setFormData] = useState({
     name: '',
@@ -13,6 +19,8 @@ export default function LeadForm() {
     travelPurpose: '',
     consent: false
   });
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const captchaRef = useRef(null);
   const [status, setStatus] = useState({ submitting: false, success: false, error: null });
 
   const handleInputChange = (field, val) => {
@@ -28,6 +36,12 @@ export default function LeadForm() {
       setStatus({ submitting: false, success: false, error: "Please consent to contact via WhatsApp and phone to proceed." });
       return;
     }
+
+    if (!captchaToken) {
+      setStatus({ submitting: false, success: false, error: "Please complete the hCaptcha verification before submitting." });
+      return;
+    }
+
     setStatus({ submitting: true, success: false, error: null });
 
     const payload = {
@@ -38,6 +52,7 @@ export default function LeadForm() {
       travel_timeline: formData.travelTimeline,
       travel_purpose: formData.travelPurpose,
       whatsapp_consent: formData.consent ? "Yes" : "No",
+      "h-captcha-response": captchaToken,
       subject: `ExclusiveSchengen Consultation Request – ${formData.name} (${formData.travelPurpose || 'General'})`
     };
 
@@ -51,14 +66,20 @@ export default function LeadForm() {
 
       if (response.ok && resData.success) {
         setStatus({ submitting: false, success: true, error: null });
+        captchaRef.current?.resetCaptcha();
+        setCaptchaToken(null);
         setTimeout(() => {
           const msg = `Hello The ExclusiveSchengen, I need Schengen appointment help.`;
           window.open(`https://api.whatsapp.com/send/?phone=+971543656794&text=${encodeURIComponent(msg)}&type=phone_number&app_absent=0`, '_blank');
         }, 1500);
       } else {
-        throw new Error(resData.message || "Submission failed.");
+        captchaRef.current?.resetCaptcha();
+        setCaptchaToken(null);
+        throw new Error(resData.message || "Submission failed. Please try again.");
       }
     } catch (err) {
+      captchaRef.current?.resetCaptcha();
+      setCaptchaToken(null);
       setStatus({ submitting: false, success: false, error: err.message });
     }
   };
@@ -210,6 +231,21 @@ export default function LeadForm() {
                   <label htmlFor="lead-consent" className="form-checkbox-label">
                     I agree to be contacted on WhatsApp and by phone about my enquiry.
                   </label>
+                </div>
+
+                {/* hCaptcha Verification */}
+                <div className="form-hcaptcha-row">
+                  <HCaptcha
+                    ref={captchaRef}
+                    sitekey={hcaptchaSiteKey}
+                    reCaptchaCompat={false}
+                    onVerify={(token) => {
+                      setCaptchaToken(token);
+                      setStatus(prev => ({ ...prev, error: null }));
+                    }}
+                    onExpire={() => setCaptchaToken(null)}
+                    onError={() => setCaptchaToken(null)}
+                  />
                 </div>
 
                 {/* Submit button */}

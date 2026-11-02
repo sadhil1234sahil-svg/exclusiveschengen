@@ -236,6 +236,22 @@
   user-select: none;
 }
 
+/* hCaptcha verification container */
+.form-hcaptcha-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0 0.25rem;
+  min-height: 78px;
+}
+
+@media (max-width: 480px) {
+  .form-hcaptcha-row {
+    transform: scale(0.92);
+    transform-origin: center;
+  }
+}
+
 /* Orange Consultation Submit Button matching reference */
 .submit-btn-consult {
   width: 100%;
